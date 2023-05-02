@@ -8,7 +8,7 @@ end
 string = ARGV[0]
 
 if string.match(/School/)
-  puts string1.chomp
+  puts string.chomp
 else
   exit 1
 end
