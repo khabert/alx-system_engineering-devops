@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-# This script displays the PID and process name of processes whose name contains the word "bash".
+# script that displays To infinity and beyond indefinitely
 
-for pid in /proc/*/status ; do
-    if grep -q "bash" $pid ; then
-        echo "$(awk '/Pid|Name/{printf("%s ", $2)}' $pid)"
-    fi
-done
+#!/usr/bin/env bash
+# A script that displays the PID
+
+pgrep -l bash
