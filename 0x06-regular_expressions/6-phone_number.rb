@@ -1,8 +1,2 @@
 #!/usr/bin/env ruby
-
-regex = /\A\d{10}\z/
-string = ARGV[0]
-
-if string.match?(regex)
-  puts string
-end
+puts ARGV[0].scan(/^\d{10}$/).join
