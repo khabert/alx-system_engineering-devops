@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Get network interfaces information and filter out IPv4 addresses
 
-ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*'
+ip -4 -o addr show | awk '{print $4}' | cut -d "/" -f 1
