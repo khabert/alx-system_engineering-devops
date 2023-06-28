@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 #!/usr/bin/env bash
 # run apache on designated container
 
 echo "ServerName localhost" >> /etc/apache2.conf
+=======
+i#!/usr/bin/env bash
+# A Script that turns on an Apache Server container
+>>>>>>> bce1c494fa0d10a73f51b78141047a0e80f24974
 service apache2 start
