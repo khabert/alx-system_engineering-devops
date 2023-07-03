@@ -1,11 +1,24 @@
 #!/usr/bin/env bash
+# Update package lists
+sudo apt update
 
-#install nginx and start it Nginx should be listening on port 80
-#When querying Nginx at its root / with a GET request (requesting a page) using curl, 
-#it must return a page that contains the string Hello World!
+# Install Nginx
+sudo apt install -y nginx
 
-sudo apt-get -y install nginx
-service nginx start
-ufw allow 'Nginx HTTP'
-echo "Hello World!\n" | sudo tee /var/www/html/index.nginx-debian.html
-service nginx restart
+# Configure Nginx
+sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index index.html index.htm;
+
+    location / {
+        return 200 "Hello World!";
+    }
+}
+EOF
+
+# Restart Nginx
+sudo service nginx restart
