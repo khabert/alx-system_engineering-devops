@@ -6,19 +6,7 @@ sudo apt update
 sudo apt install -y nginx
 
 # Configure Nginx
-sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
-server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-
-    root /var/www/html;
-    index index.html index.htm;
-
-    location / {
-        return 200 "Hello World!";
-    }
-}
-EOF
+echo "Hello world" | sudo tee /var/www/html/index.html
 
 # Restart Nginx
 sudo service nginx restart
